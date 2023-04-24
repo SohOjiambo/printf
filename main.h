@@ -39,9 +39,24 @@ struct fmt
  */
 typedef struct fmt fmt_t;
 
+/**
+ * refLetter - structure definition of a printTypeStruct
+ * @reference: type
+ * @output: function to print
+ */
+
+typedef struct referenceLetter
+{
+	char *type;
+	int (*output)(va_list);
+} referenceLetter;
+
+
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
-va_list list, char buffer[], int flags, int width, int precision, int size);
+va_list list, char buffer[], int flags, int width, int precision, int 
+
+size);
 
 /****************** FUNCTIONS ******************/
 
@@ -68,7 +83,9 @@ int print_hexa_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 int print_hexa(va_list types, char map_to[],
-char buffer[], int flags, char flag_ch, int width, int precision, int size);
+char buffer[], int flags, char flag_ch, int width, int precision, int 
+
+size);
 
 /* Function to print non printable characters */
 int print_non_printable(va_list types, char buffer[],
@@ -113,6 +130,21 @@ int is_digit(char);
 
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
+
+/****************** MORE FUNCTIONS ******************/
+
+int _write(char c);
+int _strlen(char *s);
+int printChar(va_list arg);
+int printstring(va_list arg);
+int printInteger(va_list arg);
+int printUnsignedInteger(va_list arg);
+int printUnsignedIntToBinary(unsigned int num);
+int printOctal(va_list arg);
+int printHexadecimal(va_list arg);
+int printHEXADECIMAL(va_list arg);
+int printSTRING(va_list arg);
+int printPointer(va_list arg);
 
 #endif /* MAIN_H */
 
