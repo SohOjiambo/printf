@@ -10,9 +10,7 @@
 
 int printReference(char amp, va_list arg)
 {
-	int functionsList;
-
-	functionsList = i;
+	int i;
 
 	referenceLetter functions[] = {
 		{"c", printChar},
@@ -22,16 +20,16 @@ int printReference(char amp, va_list arg)
 		{"u", printUnsignedInteger},
 		{"b", printUnsignedIntToBinary},
 		{"o", printOctal},
-		{"x", printhexadecimal},
+		{"x", printHexadecimal},
 		{"X", printHEXADECIMAL},
 		{"S", printSTRING},
 		{"p", printPointer},
 		{NULL, NULL}
 	};
 
-	for (i = 0, functions[i].reference != NULL; i++)
+	for (i = 0; functions[i].reference != NULL; i++)
 	{
-		if (functions[i].reference[0] == amp)
+		if (*(functions[i].reference) == amp)
 			return (functions[i].output(arg));
 	}
 	return (0);
@@ -59,7 +57,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			write(1, &format[i], 1;
+			write(1, &format[i], 1);
 			character++;
 			continue;
 		}
