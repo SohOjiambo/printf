@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * printUnsignedIntToBinary - converts unsigned integer to binary
  * @arg: argument
@@ -9,12 +11,15 @@ int printUnsignedIntToBinary(va_list arg)
 {
 	int binary_No = 0;
 	int base = 1;
-	unsigned int = num;
+	unsigned int num, unsigned_num;
 
-	while (num > 0)
+	num = va_arg(arg, unsigned int);
+	unsigned_num = num;
+
+	while (unsigned_num > 0)
 	{
-		binary_No += (num % 2) * base;
-		num /= 2;
+		binary_No += (unsigned_num % 2) * base;
+		unsigned_num /= 2;
 		base *= 10;
 	}
 	return (binary_No);
@@ -30,9 +35,9 @@ int printUnsignedIntToBinary(va_list arg)
 int printOctal(va_list arg)
 {
 	unsigned int num = va_arg(arg, unsigned int);
-	int c = 0, i;
 	unsigned int tmp = num;
-	int *octalNum = NULL
+	int c = 0, i;
+	int *octalNum = NULL;
 
 	while (tmp != 0)
 	{
@@ -166,6 +171,11 @@ int printPointer(va_list arg)
 {
 	void *ptr = va_arg(arg, void *);
 
+	unsigned long int address = (unsigned long int) ptr;
+	unsigned int quotient;
+	int i = 0, j;
+	char *hexadecimal = malloc(sizeof(char) * 100);
+
 	if (ptr == NULL)
 	{
 		_write('(');
@@ -176,10 +186,6 @@ int printPointer(va_list arg)
 		return (5);
 	}
 
-	unsigned long int address = (unsigned long int) ptr;
-	unsigned int quotient;
-	int i = 0, j;
-	char *hexadecimal = malloc(sizeof(char) * 100);
 
 	if (hexadecimal == NULL)
 		return (-1);

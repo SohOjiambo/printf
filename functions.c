@@ -23,14 +23,13 @@ int printChar(va_list arg)
 
 int printstring(va_list arg)
 {
-	int i;
-	char *str = va_arg(arg char *)
+	char *str = va_arg(arg, char *);
 	int len;
 
 	if (str == NULL)
-		str = "(Nill)"
-	if (str == '\0')
-		return (-1)
+		str = "(Nill)";
+	if (*str == '\0')
+		return (-1);
 
 	len = _strlen(str);
 
@@ -48,13 +47,15 @@ int printstring(va_list arg)
 int printInteger(va_list arg)
 {
 	int num = va_arg(arg, int);
-	int c = 0
+	int c = 0;
 	int tmp = num;
 	int div = 1;
+	char x;
 
 	if (num < 0)
 	{
-		c += _write("-")
+		x = '-';
+		c += _write(x);
 		num = -num;
 	}
 
@@ -96,7 +97,7 @@ int printInteger(va_list arg)
 int printUnsignedInteger(va_list arg)
 {
 	int num = va_arg(arg, int);
-	int c = 0
+	int c = 0;
 	unsigned int tmp = num;
 	unsigned int div = 1;
 

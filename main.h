@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
@@ -47,7 +48,7 @@ typedef struct fmt fmt_t;
 
 typedef struct referenceLetter
 {
-	char *type;
+	char *reference;
 	int (*output)(va_list);
 } referenceLetter;
 
@@ -133,14 +134,14 @@ long int convert_size_unsgnd(unsigned long int num, int size);
 
 /****************** MORE FUNCTIONS ******************/
 
-int _write(char c);
+int _write(int c);
 int _strlen(char *s);
 int printChar(va_list arg);
 int printReference(char amp, va_list arg);
 int printstring(va_list arg);
 int printInteger(va_list arg);
 int printUnsignedInteger(va_list arg);
-int printUnsignedIntToBinary(unsigned int num);
+int printUnsignedIntToBinary(va_list arg);
 int printOctal(va_list arg);
 int printHexadecimal(va_list arg);
 int printHEXADECIMAL(va_list arg);
