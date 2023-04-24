@@ -136,6 +136,7 @@ long int convert_size_unsgnd(unsigned long int num, int size);
 int _write(char c);
 int _strlen(char *s);
 int printChar(va_list arg);
+int printReference(char amp, va_list arg);
 int printstring(va_list arg);
 int printInteger(va_list arg);
 int printUnsignedInteger(va_list arg);
