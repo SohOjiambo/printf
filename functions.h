@@ -9,7 +9,7 @@ typedef struct {
 int _write(int c);
 int _strlen(char *s);
 int printChar(va_list arg);
-int printstring(va_list arg);
+int printString(va_list arg);
 int printInteger(va_list arg);
 int printUnsignedInteger(va_list arg);
 int printUnsignedIntToBinary(va_list arg);

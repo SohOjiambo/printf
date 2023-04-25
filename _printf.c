@@ -18,7 +18,7 @@ int printReference(char amp, va_list arg)
 
 	referenceLetter functions[] = {
 		{"c", printChar},
-		{"s", printstring},
+		{"s", printString},
 		{"d", printInteger},
 		{"i", printInteger},
 		{"u", printUnsignedInteger},
@@ -63,25 +63,18 @@ int _printf(const char *format, ...)
 		{
 			write(1, &format[i], 1);
 			character++;
-			continue;
 		}
-		if (format[i + 1] == '%')
+		else
 		{
-			write(1, "%", 1);
-			character++;
 			i++;
-			continue;
+			if (format[i] == '\0')
+				return (-1);
+			reference = printReference(format[i], arg);
+			if (reference == -1)
+				return (-1);
+			character += reference;
 		}
-		if (format[i + 1] == '\0')
-			return (-1);
 	}
-	reference = printReference(format[i + 1], arg);
-	if (reference == -1)
-		return (-1);
-
-	character += reference;
-	i++;
-
 
 	va_end(arg);
 

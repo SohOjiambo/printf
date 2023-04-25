@@ -23,7 +23,7 @@ int printChar(va_list arg)
  * Return: number of characters printed
  */
 
-int printstring(va_list arg)
+int printString(va_list arg)
 {
 	char *str = va_arg(arg, char *);
 	int len;
