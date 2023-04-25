@@ -1,6 +1,4 @@
 #include "main.h"
-#include <string.h>
-#include "functions.h"
 
 /************************* PRINT CHAR *************************/
 
@@ -14,23 +12,12 @@
  * @size: Size specifier
  * Return: Number of chars printed
  */
-<<<<<<< HEAD
 int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
-=======
-
-int printString(va_list arg)
->>>>>>> 9a239f9e8c5e86b44637bd8e5ef030fb015404b1
 {
 	char c = va_arg(types, int);
 
-<<<<<<< HEAD
 	return (handle_write_char(c, buffer, flags, width, precision, size));
-=======
-	len = strlen(str);
-
-	return (write(1, str, len));
->>>>>>> 9a239f9e8c5e86b44637bd8e5ef030fb015404b1
 }
 /************************* PRINT A STRING *************************/
 /**

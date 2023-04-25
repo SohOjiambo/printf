@@ -1,47 +1,6 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-#include "functions.h"
 
-<<<<<<< HEAD
 void print_buffer(char buffer[], int *buff_ind);
-=======
-/**
- * printReference - prints an identifier
- * @amp: the character to be printed. Comes after %
- * @arg: argument for the identifier
- *
- * Return: the number of characters printed
- */
-
-int printReference(char amp, va_list arg)
-{
-	int i;
-
-	referenceLetter functions[] = {
-		{"c", printChar},
-		{"s", printString},
-		{"d", printInteger},
-		{"i", printInteger},
-		{"u", printUnsignedInteger},
-		{"b", printUnsignedIntToBinary},
-		{"o", printOctal},
-		{"x", printHexadecimal},
-		{"X", printHEXADECIMAL},
-		{"S", printSTRING},
-		{"p", printPointer},
-		{NULL, NULL}
-	};
-
-	for (i = 0; functions[i].reference != NULL; i++)
-	{
-		if (*(functions[i].reference) == amp)
-			return (functions[i].function(arg));
-	}
-	return (0);
-}
->>>>>>> 9a239f9e8c5e86b44637bd8e5ef030fb015404b1
 
 /**
  * _printf - Printf function
@@ -64,7 +23,6 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-<<<<<<< HEAD
 			buffer[buff_ind++] = format[i];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
@@ -92,26 +50,6 @@ int _printf(const char *format, ...)
 	va_end(list);
 
 	return (printed_chars);
-=======
-			write(1, &format[i], 1);
-			character++;
-		}
-		else
-		{
-			i++;
-			if (format[i] == '\0')
-				return (-1);
-			reference = printReference(format[i], arg);
-			if (reference == -1)
-				return (-1);
-			character += reference;
-		}
-	}
-
-	va_end(arg);
-
-	return (character);
->>>>>>> 9a239f9e8c5e86b44637bd8e5ef030fb015404b1
 }
 
 /**
