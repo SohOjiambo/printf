@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+#include "functions.h"
 
 /**
  * printUnsignedIntToBinary - converts unsigned integer to binary

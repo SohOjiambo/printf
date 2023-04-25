@@ -1,4 +1,8 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
+#include "functions.h"
 
 /**
  * printReference - prints an identifier
@@ -30,7 +34,7 @@ int printReference(char amp, va_list arg)
 	for (i = 0; functions[i].reference != NULL; i++)
 	{
 		if (*(functions[i].reference) == amp)
-			return (functions[i].output(arg));
+			return (functions[i].function(arg));
 	}
 	return (0);
 }
@@ -72,15 +76,14 @@ int _printf(const char *format, ...)
 			return (-1);
 	}
 	reference = printReference(format[i + 1], arg);
-	if (reference == -1 || reference != 0)
-		i++;
-	if (reference > 0)
-		character += reference;
-	if (reference == 0)
-	{
-		write(1, "%", 1);
-		character++;
-	}
+	if (reference == -1)
+		return (-1);
+
+	character += reference;
+	i++;
+
+
 	va_end(arg);
+
 	return (character);
 }

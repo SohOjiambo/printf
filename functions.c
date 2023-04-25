@@ -1,4 +1,6 @@
 #include "main.h"
+#include <string.h>
+#include "functions.h"
 
 /**
  * printChar - prints a character to stdout
@@ -31,7 +33,7 @@ int printstring(va_list arg)
 	if (*str == '\0')
 		return (-1);
 
-	len = _strlen(str);
+	len = strlen(str);
 
 	return (write(1, str, len));
 }
